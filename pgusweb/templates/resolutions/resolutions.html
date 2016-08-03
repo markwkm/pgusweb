@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load cms_tags staticfiles %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+  {% placeholder "content" %}
+  {% if request.current_page.resolutionextension %}
+    <table>
+      <tr>
+        <td>Date:</td>
+        <td>{{ request.current_page.resolutionextension.date }}</td>
+      </tr>
+      <tr>
+        <td>Title:</td>
+        <td>{{ request.current_page.resolutionextension.title }}</td>
+      </tr>
+      <tr>
+        <td>Action:</td>
+        <td>{{ request.current_page.resolutionextension.action }}</td>
+      </tr>
+      <tr>
+        <td>Resolution:</td>
+        <td>{{ request.current_page.resolutionextension.resolution }}</td>
+      </tr>
+      <tr>
+        <td>Vote Record:</td>
+        <td>{{ request.current_page.resolutionextension.vote_record }}</td>
+      </tr>
+    </table>
+  {% endif %}
+{% endblock content %}
